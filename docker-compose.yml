@@ -1,0 +1,10 @@
+services:
+  database:
+    image: postgres
+    container_name: camargo-dev
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: 'camargodev_db'
+    ports:
+      - '5432:5432'
