@@ -7,7 +7,7 @@ export default class AuthController {
     const data = await request.validateUsing(registerValidator)
     const user = await User.create(data)
     const token = await User.accessTokens.create(user, ['*'], {
-      expiresIn: '30 days',
+      expiresIn: '7 days',
     })
     return {
       user,
