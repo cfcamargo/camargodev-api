@@ -15,13 +15,18 @@ export default class AuthController {
     }
   }
 
-  async login({ request }: HttpContext) {
+  async login({ request, response }: HttpContext) {
     const { email, password } = await request.validateUsing(loginValidator)
     const user = await User.verifyCredentials(email, password)
+
+    if(!user){
+      return response.status(404).send('Authentication Error, Verify Credentials')
+    } 
+
     const token = await User.accessTokens.create(user)
     return {
-      user,
-      token,
+        user,
+        token,
     }
   }
 

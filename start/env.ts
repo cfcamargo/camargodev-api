@@ -27,5 +27,14 @@ export default await Env.create(new URL('../', import.meta.url), {
   DB_PORT: Env.schema.number(),
   DB_USER: Env.schema.string(),
   DB_PASSWORD: Env.schema.string.optional(),
-  DB_DATABASE: Env.schema.string()
+  DB_DATABASE: Env.schema.string(),
+
+
+
+  MINIO_ACCESS_KEY: Env.schema.string(),
+  MINIO_SECRET_KEY: Env.schema.string(),
+  MINIO_HOST: Env.schema.string(),
+  MINIO_PORT: Env.schema.number(),
+  MINIO_BUCKET_NAME: Env.schema.string(),
+  MINIO_USE_SSL: Env.schema.string()
 })
